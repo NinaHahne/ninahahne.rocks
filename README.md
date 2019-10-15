@@ -1,4 +1,4 @@
 # Nina Hahne
 
 soon-to-be 
-Fullstack Web-Developer
+Full Stack Web Developer
