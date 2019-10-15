@@ -1,3 +1,4 @@
-# hello-world
+# Nina Hahne
 
-Ich mag Gurkensalat.
+soon-to-be 
+Fullstack Web-Developer
