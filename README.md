@@ -1,4 +1,3 @@
-# Nina Hahne
+# Nina Hahne - Portfolio
 
-soon-to-be 
-Full Stack Web Developer
+coming soon...
