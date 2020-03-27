@@ -98,7 +98,7 @@ a:hover {
 .container {
     height: 100vh;
     display: grid;
-    grid-template-columns: 350px 1fr; /*for parent, 1fr: all of the available rest of space*/
+    grid-template-columns: 370px 1fr; /*for parent, 1fr: all of the available rest of space*/
     grid-template-rows: 1fr;
     /* grid-gap: 10px; */
 }
@@ -113,7 +113,7 @@ a:hover {
     background-color: rgba(240, 255, 244, 0.7);
     border-radius: 5px;
     padding: 20px;
-    margin: 10px;
+    margin: 22px;
 }
 
 img.profile-pic {
