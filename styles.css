@@ -10,14 +10,15 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /********Ninas background image******/
-    background-image: url("./images/portugal1.jpg");
+    /* background-image: url("./images/portugal1.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; */
+    background-color: powderblue;
 }
 
 /* SCROLL BARS */
@@ -97,29 +98,41 @@ a:hover {
 
 .container {
     height: 100vh;
-    display: grid;
-    grid-template-columns: 370px 1fr; /*for parent, 1fr: all of the available rest of space*/
-    grid-template-rows: 1fr;
+    display: flex;
+    /* grid-template-columns: 370px 1fr;  */
+    /* grid-template-rows: 1fr; */
     /* grid-gap: 10px; */
+    margin-left: 370px;
 }
 
 /* ======= SIDE BAR ======= */
 
 .left-sidebar {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 370px;
+    /* min-width: 330px; */
+    height: 100%;
+    /* min-height: 625px; */
+    padding: 22px;
+}
+
+.sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgba(240, 255, 244, 0.7);
-    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
     padding: 20px;
-    margin: 22px;
 }
 
 img.profile-pic {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 .profile-info {
@@ -166,9 +179,87 @@ svg {
     margin-right: 8px;
 }
 
+/* ======= MAIN / PROJECTS ======= */
+
 main {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
     /* background-color: goldenrod; */
-    margin: 10px;
+    margin: 22px 22px 22px 0px;
+}
+
+.project {
+    position: relative;
+    display: flex;
+    background-color: rgba(240, 255, 244, 0.7);
+    /* height: 460px; */
+    /* width: 430px; */
+    width: 90%;
+    border-radius: 6px;
+    padding: 6px;
+    margin: 6px;
+}
+
+.first-box h3,
+.first-box h4 {
+    text-align: center;
+}
+
+.img-box {
+    border-radius: 6px;
+    /* width: 100%; */
+    width: 418px;
+    height: 224px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.img-box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.second-box {
+    position: relative;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.second-box .github {
+    position: absolute;
+    bottom: 8px;
+}
+
+.second-box .btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+.second-box .btn img {
+    height: 25px;
+    width: 25px;
+}
+
+.petition .btn {
+    height: 40px;
+    width: 210px;
+}
+
+.connect-four .btn {
+    height: 40px;
+    width: 135px;
+}
+
+.btn.live {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
 
 .right-sidebar {
