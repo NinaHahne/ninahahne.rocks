@@ -150,6 +150,7 @@ img.profile-pic {
     width: 100%;
     height: auto;
     border-radius: 6px;
+    border: 2px solid rgb(96, 92, 91);
 }
 
 .profile-info {
@@ -215,10 +216,10 @@ main {
     /* height: 460px; */
     /* width: 430px; */
     width: 85%;
-    min-width: 760px;
+    min-width: 825px;
     max-width: 960px;
     border-radius: 6px;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 22px;
 }
 
@@ -228,12 +229,13 @@ main {
 }
 
 .img-box {
-    border-radius: 6px;
     /* width: 100%; */
     width: 418px;
     height: 224px;
     overflow: hidden;
     margin-bottom: 10px;
+    border-radius: 6px;
+    border: 2px solid rgb(96, 92, 91);
 }
 
 .img-box img {
@@ -244,42 +246,56 @@ main {
 
 .second-box {
     position: relative;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
     flex-grow: 1;
     padding-left: 15px;
 }
 
+.features {
+    margin-bottom: 12px;
+}
+
+
+.btn.live {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 6px;
+}
+
 .second-box .github {
     position: absolute;
-    bottom: 8px;
+    bottom: 10px;
 }
 
 .second-box .btn {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border: 2px solid black;
+    border: 2px solid rgb(96, 92, 91);
     border-radius: 6px;
+    font-weight: bold;
+
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.btn:focus,
+.btn:hover {
+    background-color: rgb(96, 92, 91);
+    color: rgb(245, 248, 240);
+}
+
+.btn:active {
+    transform: translateY(3px);
 }
 
 .second-box .btn img {
     height: 25px;
     width: 25px;
-}
-
-.petition .btn {
-    height: 40px;
-    width: 210px;
-}
-
-.connect-four .btn {
-    height: 40px;
-    width: 135px;
-}
-
-.btn.live {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+    margin: 0 2px;
 }
 
 .right-sidebar {
