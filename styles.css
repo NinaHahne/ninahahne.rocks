@@ -9,16 +9,17 @@ body {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: powderblue;
+    background-color: rgba(60, 70, 53, 0.6);
+
     /********Ninas background image******/
-    background-image: url("./images/portugal1.jpg");
+    /* background-image: url("./images/portugal1.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 }
 
 /* SCROLL BARS */
@@ -33,19 +34,13 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    /* background-image: linear-gradient(
-        to top,
-        powderblue 0%,
-        rgb(73, 125, 189) 50%,
-        rgba(2, 17, 56, 0.67) 80%
-    ); */
-    /* background-image: linear-gradient(
-        to top,
-        rgb(2, 17, 56) 20%,
+    background-image: linear-gradient(
+        to bottom,
+        powderblue 20%,
         rgb(117, 198, 22) 60%,
         rgb(23, 64, 22) 80%
-    ); */
-    background-image: linear-gradient(
+    );
+    /* background-image: linear-gradient(
         to bottom,
         red,
         orange,
@@ -54,7 +49,7 @@ body::-webkit-scrollbar-thumb {
         cyan,
         blue,
         purple
-    );
+    ); */
 }
 
 h1,
@@ -291,6 +286,7 @@ main {
 .second-box .github {
     position: absolute;
     bottom: 10px;
+    font-weight: bold;
 }
 
 .second-box .btn {
