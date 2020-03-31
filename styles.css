@@ -360,6 +360,9 @@ main {
         height: 25vh;
         /* border-width: 1px; */
     }
+    .project:hover {
+        transform: scale(1);
+    }
     .btn.live,
     .second-box a.github {
         position: relative;
@@ -370,7 +373,6 @@ main {
     .second-box {
         padding-left: unset;
     }
-
     .project-info {
         border-top: 1px solid rgb(96, 92, 91);
         border-bottom: 1px solid rgb(96, 92, 91);
