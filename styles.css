@@ -3,13 +3,21 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     font-family: "Lato", arial, sans-serif;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
+    background-color: rgba(60, 70, 53, 0.6);
+    height: 100%;
+    width: 100%;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: rgba(60, 70, 53, 0.6);
 
     /********Ninas background image******/
     /* background-image: url("./images/portugal1.jpg");
@@ -109,8 +117,9 @@ a:hover {
 }
 
 .container {
-    height: 100vh;
+    position: relative;
     display: flex;
+    height: 100vh;
     /* grid-template-columns: 370px 1fr;  */
     /* grid-template-rows: 1fr; */
     /* grid-gap: 10px; */
@@ -283,10 +292,12 @@ main {
     padding: 6px;
 }
 
-.second-box .github {
+.second-box a.github {
     position: absolute;
-    bottom: 10px;
+    display: block;
+    bottom: 8px;
     font-weight: bold;
+    text-align: center;
 }
 
 .second-box .btn {
@@ -319,4 +330,49 @@ main {
 
 .right-sidebar {
     background-color: papayawhip;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        margin-left: 0;
+    }
+    .left-sidebar {
+        position: relative;
+        width: 100%;
+        height: unset;
+        padding-bottom: 0px;
+    }
+    img.profile-pic {
+        width: 90%;
+    }
+    .portfolio,
+    .project {
+        flex-direction: column;
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+    }
+    .img-box {
+        width: 100%;
+        height: 25vh;
+        /* border-width: 1px; */
+    }
+    .btn.live,
+    .second-box a.github {
+        position: relative;
+        bottom: unset;
+        right: unset;
+        margin-top: 10px;
+    }
+    .second-box {
+        padding-left: unset;
+    }
+
+    .project-info {
+        border-top: 1px solid rgb(96, 92, 91);
+        border-bottom: 1px solid rgb(96, 92, 91);
+        /* border-radius: 6px; */
+        padding: 4px 4px 8px 4px;
+    }
 }
