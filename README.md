@@ -1,2 +1,2 @@
 # Nina Hahne | Portfolio
-simple portfolio website displaying all my projects
+simple portfolio website displaying all my private projects
