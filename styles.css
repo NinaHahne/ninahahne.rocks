@@ -116,17 +116,6 @@ a:hover {
     color: rgb(24, 39, 29);
 }
 
-.container {
-    position: relative;
-    display: flex;
-    height: 100vh;
-    /* grid-template-columns: 370px 1fr;  */
-    /* grid-template-rows: 1fr; */
-    /* grid-gap: 10px; */
-    margin-left: 370px;
-    margin-right: 300px;
-}
-
 /* ======= SIDE BAR ======= */
 
 .left-sidebar {
@@ -176,7 +165,16 @@ img.profile-pic {
     color: rgb(96, 92, 91);
     font-size: 24px;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 5px 0;
+}
+
+.profile-info hr {
+    border: none;
+    margin: 0;
+    background-color: rgb(96, 92, 91);
+    height: 2px;
+    width: 40px;
+    margin-top: 2px;
 }
 
 .profile-info span {
@@ -206,24 +204,25 @@ svg {
 
 main {
     position: relative;
+    margin: 0;
+}
+
+section.content {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
+    flex-direction: column;
     justify-content: center;
     /* background-color: goldenrod; */
-    margin: 22px 22px 22px 22px;
+    margin: 22px 360px;
 }
 
 .portfolio,
 .project {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     background-color: rgba(245, 248, 240, 0.85);
-    /* height: 460px; */
-    /* width: 430px; */
-    width: 95%;
-    min-width: 825px;
-    max-width: 960px;
+    width: 100%;
     border-radius: 6px;
     padding: 10px;
     margin-bottom: 22px;
@@ -233,6 +232,10 @@ main {
 }
 
 .portfolio {
+    position: sticky;
+    top: 22px;
+    z-index: 100;
+
     align-items: center;
     justify-content: center;
 }
@@ -240,12 +243,28 @@ main {
 .project {
     -webkit-transition-duration: 0.6s;
     transition-duration: 0.6s;
+
+    justify-content: space-between;
 }
 
 .project:hover {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     background-color: rgba(245, 248, 240, 1);
-    z-index: 10;
+    /* z-index: 10; */
+}
+
+.first-box,
+.second-box {
+    position: relative;
+    flex: 1 1 50%; /* Grow, shrink, and set a base width of 50% */
+    min-width: 320px;
+}
+
+.first-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
 }
 
 .first-box h3,
@@ -254,9 +273,8 @@ main {
 }
 
 .img-box {
-    /* width: 100%; */
-    width: 418px;
-    height: 224px;
+    width: 100%;
+    height: auto;
     overflow: hidden;
     margin-bottom: 10px;
     border-radius: 6px;
@@ -264,19 +282,18 @@ main {
 }
 
 .img-box img {
-    height: 100%;
+    display: block;
     width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
 .second-box {
     position: relative;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
     flex-grow: 1;
     padding-left: 15px;
     padding-bottom: 45px;
+    min-width: 320px;
 }
 
 .features {
@@ -335,10 +352,10 @@ main {
 }
 
 @media screen and (max-width: 480px) {
-    .container {
-        flex-direction: column;
+    section.content  {
         margin-left: 0;
         margin-right: 0;
+        padding: 0 22px;
     }
     .left-sidebar {
         position: relative;
