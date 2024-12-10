@@ -129,6 +129,17 @@ a:hover {
     padding: 22px;
 }
 
+.right-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 360px;
+    /* min-width: 330px; */
+    height: 100%;
+    min-height: 650px;
+    padding: 22px;
+}
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -347,10 +358,6 @@ section.content {
     margin: 0 2px;
 }
 
-.right-sidebar {
-    background-color: papayawhip;
-}
-
 @media screen and (max-width: 480px) {
     section.content  {
         margin-left: 0;
@@ -363,6 +370,10 @@ section.content {
         height: unset;
         min-height: unset;
         padding-bottom: 0px;
+    }
+    .right-sidebar {
+        /* TODO */
+        display: none;
     }
     img.profile-pic {
         width: 90%;
