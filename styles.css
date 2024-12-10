@@ -1,3 +1,8 @@
+:root {
+    --ease-out-quart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    --ease-in-circ: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -410,4 +415,134 @@ section.content {
         /* border-radius: 6px; */
         padding: 4px 4px 8px 4px;
     }
+}
+
+/* Wheel */
+@keyframes rotate {
+    to {
+        transform: rotateY(-360deg);
+    }
+}
+.wheel-wrapper {
+    --width: 42px; /* muss auf Schriftgröße angepasst werden ?? bestimmt zusammen mit --transZ die Breite des Wheels */
+    --transZ: 78px; /* bestimmt zusammen mit --width die Breite des Wheels & Abstand zwischen den Panels */
+    --number: 12; /* number of panels */
+    --number-float: 12.0;
+    --wheelRotation: 0deg; /* wird in JS gesetzt */
+
+    position: relative;
+    /* color: white; */
+    /* background-color: black; */
+    height: 260px;
+    display: grid;
+    place-items: center;
+    perspective: 500px;
+    perspective-origin: 50% calc(50% - 90px);
+
+    font-size: 52px;
+    line-height: 1;
+    font-weight: 800;
+
+    /* ? */
+    /* overflow: hidden; */
+}
+
+.wheel-wrapper .wheel {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.wheel-wrapper .banner {
+    display: flex;
+    transform-style: preserve-3d;
+    /* TODO: */
+    animation: rotate 20s infinite linear;
+
+    /* ? */
+    transition: transform 1.2s var(--ease-out-quart);
+    transform: rotateY(var(--wheelRotation));
+}
+
+.wheel-wrapper .panel {
+    position: absolute;
+    transform: translate(-50%, -50%) rotateY(var(--angle)) translateZ(var(--transZ));
+    width: var(--width);
+    overflow: hidden;
+
+    font-size: inherit;
+    height: 1em;
+
+    color: rgb(71, 60, 53);
+    /* Regenbogen */
+    /* color: hsl(var(--hue), 75%, 75%); */
+
+    /* TODO: Berechnung korrigieren: */
+    /* --left: calc(var(--width) * (var(--number-float) - 1.0 - var(--n)) * -1); */
+    --hue: calc(360deg / var(--number) * var(--n));
+    --angle: calc(360deg / var(--number) * var(--n));
+}
+
+/* SCSS: */
+/* $number: 12;
+@for $i from 0 to $number {
+  .panel:nth-child(#{$i + 1}) {
+    --left: #{$width * $i * -1};
+    --hue: #{360 / $number * $i};
+    --angle: #{360deg / $number * $i};
+  }
+} */
+
+.panel:nth-child(1) {
+    --left: 0px;
+}
+.panel:nth-child(2) {
+    --left: -42px;
+}
+.panel:nth-child(3) {
+    --left: -84px;
+}
+.panel:nth-child(4) {
+    --left: -126px;
+}
+.panel:nth-child(5) {
+    --left: -168px;
+}
+.panel:nth-child(6) {
+    --left: -210px;
+}
+.panel:nth-child(7) {
+    --left: -252px;
+}
+.panel:nth-child(8) {
+    --left: -294px;
+}
+.panel:nth-child(9) {
+    --left: -336px;
+}
+.panel:nth-child(10) {
+    --left: -378px;
+}
+.panel:nth-child(11) {
+    --left: -420px;
+}
+.panel:nth-child(12) {
+    --left: -462px;
+}
+
+.wheel-wrapper .panel::before {
+    position: absolute;
+    left: var(--left);
+    content: "HIRE ME NOW"; /* HIRE ME ★ HIRE ME ★  */
+    width: max-content;
+}
+
+.wheel-wrapper .screen {
+    /* trennt vertikal den vorderen Teil vom Rad vom hinteren */
+    display: none;
+
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-color: rgba(245, 248, 240, 0.85);
+    transform: translate(-50%, -50%);
 }
