@@ -313,7 +313,7 @@ section.content {
 .img-box img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -427,6 +427,11 @@ section.content {
         border-bottom: 1px solid rgb(96, 92, 91);
         /* border-radius: 6px; */
         padding: 4px 4px 8px 4px;
+    }
+
+    .first-box,
+    .second-box {
+        min-width: unset;
     }
 }
 
