@@ -160,6 +160,11 @@ a:hover {
 img.profile-pic {
     width: 100%;
     height: auto;
+    max-height: 30vh;
+    max-width: 40vh;
+    object-fit: cover;
+    object-position: center top;
+
     border-radius: 6px;
     border: 2px solid rgb(96, 92, 91);
 }
@@ -204,6 +209,8 @@ img.profile-pic {
 }
 
 .contact {
+    position: relative;
+    z-index: 1;
     margin-left: 15px;
     margin-bottom: 15px;
 }
@@ -233,6 +240,7 @@ section.content {
     justify-content: center;
     /* background-color: goldenrod; */
     margin: 22px 360px;
+    max-width: 1300px;
     /* solange es noch keine rechte sidebar gibt: */
     margin-right: 22px;
 }
