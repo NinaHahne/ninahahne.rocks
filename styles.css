@@ -149,7 +149,8 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgba(245, 248, 240, 0.85);
+    /* background-color: rgba(245, 248, 240, 0.85); */
+    background-color: rgba(245, 248, 240, 1);
     width: 100%;
     height: 100%;
     border-radius: 6px;
@@ -164,6 +165,8 @@ img.profile-pic {
 }
 
 .profile-info {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -230,6 +233,8 @@ section.content {
     justify-content: center;
     /* background-color: goldenrod; */
     margin: 22px 360px;
+    /* solange es noch keine rechte sidebar gibt: */
+    margin-right: 22px;
 }
 
 .portfolio,
@@ -428,12 +433,11 @@ section.content {
     --transZ: 78px; /* bestimmt zusammen mit --width die Breite des Wheels & Abstand zwischen den Panels */
     --number: 12; /* number of panels */
     --number-float: 12.0;
-    --wheelRotation: 0deg; /* wird in JS gesetzt */
+    --wheelRotation: -29deg; /* wird in JS gesetzt */
 
     position: relative;
-    /* color: white; */
-    /* background-color: black; */
     height: 260px;
+    height: 160px;
     display: grid;
     place-items: center;
     perspective: 500px;
@@ -443,8 +447,7 @@ section.content {
     line-height: 1;
     font-weight: 800;
 
-    /* ? */
-    /* overflow: hidden; */
+    margin-top: -30px;
 }
 
 .wheel-wrapper .wheel {
@@ -456,7 +459,7 @@ section.content {
     display: flex;
     transform-style: preserve-3d;
     /* TODO: */
-    animation: rotate 20s infinite linear;
+    /* animation: rotate 20s infinite linear; */
 
     /* ? */
     transition: transform 1.2s var(--ease-out-quart);
@@ -538,11 +541,11 @@ section.content {
 
 .wheel-wrapper .screen {
     /* trennt vertikal den vorderen Teil vom Rad vom hinteren */
-    display: none;
+    /* display: none; */
 
     position: absolute;
-    width: 400px;
-    height: 300px;
+    width: 200px;
+    height: 160px;
     background-color: rgba(245, 248, 240, 0.85);
     transform: translate(-50%, -50%);
 }
