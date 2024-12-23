@@ -1,14 +1,23 @@
 // Rotating Wheel:
-const wheel = document.querySelector('.wheel-wrapper');
-const SPEED = 1;
-const initialRotation = -29;
-let progress = 0; // 0-1 change while scrolling
+const SPEED = 1; // Speed multiplier for rotation
+const INITIAL_ROTATION = -29; // Starting rotation of the wheel in degrees
 
-// progress should be 0 when scrolled to the top and 1 when scrolled to the bottom:
+const wheel = document.querySelector('.wheel-wrapper');
+const spacer = document.querySelector('.spacer'); // Element to track scroll progress
+
+// Function to calculate scroll progress based on the spacer element
+function getScrollProgress() {
+    const spacerRect = spacer.getBoundingClientRect();
+    const spacerHeight = spacerRect.height;
+    const windowHeight = window.innerHeight;
+    const spacerTop = Math.max(0, -spacerRect.top);
+    const progress = Math.min(1, spacerTop / (spacerHeight - windowHeight));
+    return progress;
+}
+
 window.addEventListener('scroll', () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    progress = scrollTop / (scrollHeight - clientHeight);
-    
-    let wheelRotation = -360 * Math.min(1, progress * SPEED) + initialRotation; // deg
-    wheel.style.setProperty('--wheelRotation', wheelRotation+'deg');
+    const progress = getScrollProgress();
+    const wheelRotation = -360 * progress * SPEED + INITIAL_ROTATION; // Calculate rotation
+    wheel.style.setProperty('--wheelRotation', `${wheelRotation}deg`); // Update CSS variable
 });
+
