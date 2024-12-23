@@ -414,6 +414,42 @@ section.content {
     margin: 0 2px;
 }
 
+/* "raining images: */
+
+#rain {
+    position: fixed;
+    top: 0;
+    height: 100lvh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-box.rain {
+    cursor: pointer;
+}
+
+.rain-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: rain 3s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes rain {
+    0% {
+        top: -10%;
+        opacity: 1;
+    }
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
+
+/* PHONE STYLING */
 @media screen and (max-width: 480px) {
     .spacer {
         height: 200vh;
