@@ -157,17 +157,42 @@ a:hover {
     padding: 12px;
 }
 
+.left-sidebar .sidebar {
+    /* rundes Loch zum Hintergrund als Fenster fürs Profilbild */
+    mask-composite: exclude; /* Ensures the hole is visible */
+    -webkit-mask-composite: destination-out; /* Webkit equivalent */
+    mask-image: radial-gradient(circle at center 142px, transparent 114px, black 115px);
+    -webkit-mask-image: radial-gradient(circle at center 142px, transparent 114px, black 115px);
+}
+
+.window { /* Platzhalter für das Profilbild */
+    position: relative;
+    align-self: center;
+    width: 230px;
+    height: 230px;
+}
+
+.window-frame {
+    position: fixed;
+    z-index: 1;
+    top: 49px;
+    left: 65px;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    border: 2px solid rgb(96, 92, 91);
+}
+
 img.profile-pic {
-    width: 100%;
+    position: fixed;
+    top: 72px;
+    left: 89px;
+    width: 200px;
     height: auto;
-    max-height: 30vh;
-    max-width: 40vh;
     object-fit: cover;
     object-position: center top;
-    background-color: rgb(138 144 133);
+    /* background-color: rgb(138 144 133); */
 
-    border-radius: 6px;
-    border: 2px solid rgb(96, 92, 91);
 }
 
 .profile-info {
