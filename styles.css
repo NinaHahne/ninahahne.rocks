@@ -285,12 +285,17 @@ section.content {
     flex-wrap: wrap;
     background-color: rgba(245, 248, 240, 0.85);
     width: 100%;
+    min-width: 340px;
     border-radius: 6px;
     padding: 10px;
-    margin-bottom: 22px;
-
+    
     -webkit-transition-duration: 0.6s;
     transition-duration: 0.6s;
+
+}
+
+.content > div:not(:last-of-type) {
+    margin-bottom: 22px;
 }
 
 .portfolio {
@@ -416,7 +421,7 @@ section.content {
     section.content  {
         margin-left: 0;
         margin-right: 0;
-        padding: 22px 22px 0;
+        padding: 22px;
     }
     .left-sidebar {
         position: relative;
@@ -429,9 +434,15 @@ section.content {
         /* TODO */
         display: none;
     }
+
+    .window-frame,
     img.profile-pic {
-        width: 90%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
+
     .portfolio,
     .project {
         flex-direction: column;
