@@ -43,7 +43,7 @@ document.querySelectorAll('.img-box.rain').forEach((imgBox) => {
             if (now - lastTriggered < 1000) return;
             lastTriggered = now;
 
-            // Generate random positions for each image
+            // Generate random positions for each snowflake
             const usedPositions = []; // To track used positions
             const getRandomPosition = () => {
                 let position;
@@ -58,13 +58,16 @@ document.querySelectorAll('.img-box.rain').forEach((imgBox) => {
             images.forEach((imageSrc, index) => {
                 const img = document.createElement('img');
                 img.src = imageSrc;
-                img.className = 'rain-image';
+                img.className = 'snowflake';
 
                 // Assign a unique random position
                 img.style.left = `${getRandomPosition()}%`;
 
+                // Randomize animation duration for more variation
+                img.style.animationDuration = `${3 + Math.random() * 2}s`; // Between 3s and 5s
+
                 // Add animation delay based on the index
-                img.style.animationDelay = `${index * 0.2}s`;
+                img.style.animationDelay = `${index * 0.5}s`;
 
                 document.querySelector('#rain').appendChild(img);
 
