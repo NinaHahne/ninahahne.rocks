@@ -43,13 +43,26 @@ document.querySelectorAll('.img-box.rain').forEach((imgBox) => {
             if (now - lastTriggered < 1000) return;
             lastTriggered = now;
 
+            // Generate random positions for each image
+            const usedPositions = []; // To track used positions
+            const getRandomPosition = () => {
+                let position;
+                do {
+                    position = Math.random() * 100; // Random position between 0% and 100%
+                } while (usedPositions.some((p) => Math.abs(p - position) < 10)); // Ensure no overlap (min 10% apart)
+                usedPositions.push(position);
+                return position;
+            };
+
             // Loop through each image in the data-images array
             images.forEach((imageSrc, index) => {
                 const img = document.createElement('img');
                 img.src = imageSrc;
                 img.className = 'rain-image';
-                img.style.left = `${Math.random() * 100}%`; // Random horizontal position
-                
+
+                // Assign a unique random position
+                img.style.left = `${getRandomPosition()}%`;
+
                 // Add animation delay based on the index
                 img.style.animationDelay = `${index * 0.2}s`;
 
@@ -63,6 +76,3 @@ document.querySelectorAll('.img-box.rain').forEach((imgBox) => {
         console.error('Invalid JSON or other error in data-images attribute:', error);
     }
 });
-
-
-
