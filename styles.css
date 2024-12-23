@@ -465,7 +465,6 @@ section.content {
     }
     100% {
         transform: translateX(0%) translateY(100lvh) rotate(0deg); /* End well below the container */
-        opacity: 0; /* Fade out as it exits */
     }
 }
 
