@@ -416,7 +416,7 @@ section.content {
 
 /* "raining images: */
 
-#rain {
+#effects {
     position: fixed;
     top: 0;
     height: 100lvh;
@@ -424,7 +424,8 @@ section.content {
     overflow: hidden;
 }
 
-.img-box.rain {
+.img-box.rain,
+.img-box.snow {
     cursor: pointer;
 }
 

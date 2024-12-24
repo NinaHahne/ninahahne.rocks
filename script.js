@@ -21,61 +21,61 @@ window.addEventListener('scroll', () => {
     wheel.style.setProperty('--wheelRotation', `${wheelRotation}deg`); // Update CSS variable
 });
 
-document.querySelectorAll('.img-box.rain').forEach((imgBox) => {
+document.querySelectorAll('.img-box.snow').forEach((imgBox) => {
     let lastTriggered = 0; // To throttle the effect
-    try {
+    const triggerEffect = () => {
+        const now = Date.now();
+        if (now - lastTriggered < 1000) return; // Throttle effect
+        lastTriggered = now;
+
         const dataImages = imgBox.getAttribute('data-images');
         if (!dataImages) {
             console.warn('Missing data-images attribute on', imgBox);
             return;
         }
 
-        const images = JSON.parse(dataImages);
+        try {
+            const images = JSON.parse(dataImages);
+            if (!Array.isArray(images) || images.length === 0) {
+                console.warn('data-images is not a valid array or is empty', imgBox);
+                return;
+            }
 
-        if (!Array.isArray(images) || images.length === 0) {
-            console.warn('data-images is not a valid array or is empty', imgBox);
-            return;
-        }
-
-        imgBox.addEventListener('mouseenter', () => {
-            const now = Date.now();
-            // Trigger the effect only if 1 second has passed since the last trigger
-            if (now - lastTriggered < 1000) return;
-            lastTriggered = now;
-
-            // Generate random positions for each snowflake
-            const usedPositions = []; // To track used positions
+            // Generate random positions for each image
+            const usedPositions = [];
             const getRandomPosition = () => {
                 let position;
                 do {
-                    position = Math.random() * 100; // Random position between 0% and 100%
-                } while (usedPositions.some((p) => Math.abs(p - position) < 10)); // Ensure no overlap (min 10% apart)
+                    position = Math.random() * 100;
+                } while (usedPositions.some((p) => Math.abs(p - position) < 10));
                 usedPositions.push(position);
                 return position;
             };
 
-            // Loop through each image in the data-images array
+            // Trigger effect for images
             images.forEach((imageSrc, index) => {
                 const img = document.createElement('img');
                 img.src = imageSrc;
                 img.className = 'snowflake';
-
-                // Assign a unique random position
                 img.style.left = `${getRandomPosition()}%`;
-
-                // Randomize animation duration for more variation
-                img.style.animationDuration = `${3 + Math.random() * 2}s`; // Between 3s and 5s
-
-                // Add animation delay based on the index
+                img.style.animationDuration = `${3 + Math.random() * 2}s`;
                 img.style.animationDelay = `${index * 0.5}s`;
 
-                document.querySelector('#rain').appendChild(img);
-
-                // Remove the image after the animation ends
+                document.querySelector('#effects').appendChild(img);
                 img.addEventListener('animationend', () => img.remove());
             });
-        });
-    } catch (error) {
-        console.error('Invalid JSON or other error in data-images attribute:', error);
+        } catch (error) {
+            console.error('Invalid JSON or other error in data-images attribute:', error);
+        }
+    };
+
+    // Detect whether a mouse is present
+    if (window.matchMedia('(pointer: fine)').matches) {
+        // Mouse is present: use hover
+        imgBox.addEventListener('mouseenter', triggerEffect);
+    } else {
+        // No mouse (likely touch device): use click/tap
+        imgBox.addEventListener('click', triggerEffect);
     }
 });
+
