@@ -449,23 +449,27 @@ section.content {
     opacity: 1;
 }
 
+.snowflake.test {
+    animation: none;
+}
+
 @keyframes snow-fall {
     0% {
-        transform: translateX(0%) translateY(-20lvh) rotate(0deg); /* Start slightly above the container */
+        transform: translateX(-50%) translateY(-20lvh) rotate(0deg); /* Start slightly above the container */
         opacity: 0; /* Fully transparent at the start */
     }
     25% {
-        transform: translateX(-5%) translateY(20lvh) rotate(-10deg); /* Progress evenly downward */
+        transform: translateX(-55%) translateY(20lvh) rotate(-10deg); /* Progress evenly downward */
         opacity: 1; /* Fully visible as it enters */
     }
     50% {
-        transform: translateX(5%) translateY(50lvh) rotate(10deg); /* Continue evenly downward */
+        transform: translateX(-45%) translateY(50lvh) rotate(10deg); /* Continue evenly downward */
     }
     75% {
-        transform: translateX(-3%) translateY(75lvh) rotate(-5deg); /* Further progress */
+        transform: translateX(-53%) translateY(75lvh) rotate(-5deg); /* Further progress */
     }
     100% {
-        transform: translateX(0%) translateY(100lvh) rotate(0deg); /* End well below the container */
+        transform: translateX(-50%) translateY(100lvh) rotate(0deg); /* End well below the container */
     }
 }
 
