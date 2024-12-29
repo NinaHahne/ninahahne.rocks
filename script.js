@@ -79,3 +79,16 @@ document.querySelectorAll('.img-box.snow').forEach((imgBox) => {
     }
 });
 
+document.querySelector('.img-box.jumping-frog').addEventListener('click', function () {
+    const imgBox = this;
+    const frog = document.createElement('div');
+    frog.classList.add('frog');
+    
+    // Append the frog to the img-box
+    imgBox.appendChild(frog);
+    
+    // Remove the frog after the animation ends
+    frog.addEventListener('animationend', () => {
+        frog.remove();
+    });
+});

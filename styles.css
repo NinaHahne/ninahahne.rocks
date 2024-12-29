@@ -339,6 +339,7 @@ section.content {
 }
 
 .img-box {
+    position: relative;
     width: 100%;
     height: auto;
     overflow: hidden;
@@ -680,5 +681,50 @@ section.content {
     100% {
         top: 110%;
         opacity: 0;
+    }
+}
+
+/* ======= FROG ======= */
+
+.frog {
+    position: absolute;
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    background-image: url('./images/effects/frog-leap_left_green.png'); /* Replace with your frog image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: jump 2s linear;
+}
+
+@keyframes jump {
+    0% {
+        right: -10%; /* Start off-screen on the right */
+        bottom: 10%; /* Low starting position */
+        transform: rotate(0deg);
+    }
+    15% {
+        right: 15%;
+        bottom: 50%; /* Beginning of the jump */
+    }
+    30% {
+        right: 30%;
+        bottom: 80%; /* Rising higher */
+    }
+    50% {
+        right: 50%; /* Middle of the jump */
+        bottom: 86%; /* Peak of the jump */
+    }
+    70% {
+        right: 70%; /* Descending */
+        bottom: 80%;
+    }
+    85% {
+        right: 85%;
+        bottom: 50%; /* Almost diving */
+    }
+    100% {
+        right: 100%; /* Off-screen on the left */
+        bottom: 0%; /* Return to water level */
+        transform: rotate(-160deg);/* Diving headfirst */
     }
 }
