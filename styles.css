@@ -690,8 +690,13 @@ section.content {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin-bottom: 10px;
 }
 
+.liquid-container .img-box {
+    margin-bottom: 0;
+}
 .liquid-box {
     position: relative;
     width: 100%;
@@ -705,46 +710,56 @@ section.content {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     z-index: 2;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.liquid-box::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 80%);
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 1;
-    animation: none;
 }
 
 .liquid-box:hover {
     transform: translateY(5px) scale(0.98);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    filter: brightness(1.1) contrast(1.2);
 }
 
-.liquid-box:hover::before {
-    animation: ripple 1s ease-out;
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
-@keyframes ripple {
+.liquid-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300vw;
+    height: 300vh;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 90%);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: none;
+    opacity: 0;
+}
+
+.liquid-container:hover::before {
+    animation: ripple-expansion 1.5s ease-out;
+}
+
+@keyframes ripple-expansion {
     0% {
         transform: translate(-50%, -50%) scale(0);
-        opacity: 1;
+        opacity: 0.8;
     }
     50% {
-        opacity: 0.5;
+        opacity: 0.4;
     }
     100% {
-        transform: translate(-50%, -50%) scale(2);
+        transform: translate(-50%, -50%) scale(1);
         opacity: 0;
     }
 }
