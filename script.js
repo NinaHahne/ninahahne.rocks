@@ -17,29 +17,25 @@ function getScrollProgress() {
     return progress;
 }
 
-window.addEventListener('scroll', () => {
-    const progress = getScrollProgress();
-    const wheelRotation = -360 * progress * SPEED + INITIAL_ROTATION; // Calculate rotation
-    wheel.style.setProperty('--wheelRotation', `${wheelRotation}deg`); // Update CSS variable
-});
-
-document.querySelectorAll('.img-box.snow').forEach((imgBox) => {
+// Generalized function to trigger the effect
+const triggerEffect = (element, dataAttr = 'data-images', className = 'snowflake') => {
     let lastTriggered = 0; // To throttle the effect
-    const triggerEffect = () => {
+
+    return () => {
         const now = Date.now();
         if (now - lastTriggered < 1000) return; // Throttle effect
         lastTriggered = now;
-
-        const dataImages = imgBox.getAttribute('data-images');
+        
+        const dataImages = element.getAttribute(dataAttr);
         if (!dataImages) {
-            console.warn('Missing data-images attribute on', imgBox);
+            console.warn(`Missing ${dataAttr} attribute on`, element);
             return;
         }
 
         try {
             const images = JSON.parse(dataImages);
             if (!Array.isArray(images) || images.length === 0) {
-                console.warn('data-images is not a valid array or is empty', imgBox);
+                console.warn(`${dataAttr} is not a valid array or is empty`, element);
                 return;
             }
 
@@ -58,7 +54,7 @@ document.querySelectorAll('.img-box.snow').forEach((imgBox) => {
             images.forEach((imageSrc, index) => {
                 const img = document.createElement('img');
                 img.src = imageSrc;
-                img.className = 'snowflake';
+                img.className = className;
                 img.style.left = `${getRandomPosition()}%`;
                 img.style.animationDuration = `${3 + Math.random() * 2}s`;
                 img.style.animationDelay = `${index * 0.5}s`;
@@ -67,17 +63,26 @@ document.querySelectorAll('.img-box.snow').forEach((imgBox) => {
                 img.addEventListener('animationend', () => img.remove());
             });
         } catch (error) {
-            console.error('Invalid JSON or other error in data-images attribute:', error);
+            console.error(`Invalid JSON or other error in ${dataAttr} attribute:`, error);
         }
     };
+};
 
-    // Detect whether a mouse is present
-    if (effectAlreadyOnMouseEnter && window.matchMedia('(pointer: fine)').matches) {
-        // Mouse is present: use hover
-        imgBox.addEventListener('mouseenter', triggerEffect);
-    } else {
-        // No mouse (likely touch device): use click/tap
-        imgBox.addEventListener('click', triggerEffect);
-    }
+window.addEventListener('scroll', () => {
+    const progress = getScrollProgress();
+    const wheelRotation = -360 * progress * SPEED + INITIAL_ROTATION; // Calculate rotation
+    wheel.style.setProperty('--wheelRotation', `${wheelRotation}deg`); // Update CSS variable
 });
 
+// Adding event listeners to elements
+document.querySelectorAll('.img-box.snow').forEach((imgBox) => {
+    const effectHandler = triggerEffect(imgBox, 'data-images', 'snowflake');
+
+    if (effectAlreadyOnMouseEnter && window.matchMedia('(pointer: fine)').matches) {
+        // Mouse is present: use hover
+        imgBox.addEventListener('mouseenter', effectHandler);
+    } else {
+        // No mouse (likely touch device): use click/tap
+        imgBox.addEventListener('click', effectHandler);
+    }
+});
