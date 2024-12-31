@@ -18,14 +18,14 @@ function getScrollProgress() {
 }
 
 // Generalized function to trigger the effect
-const triggerEffect = (element, dataAttr = 'data-images', className = 'snowflake') => {
+const triggerEffect = (element, dataAttr = 'data-images', effectClassName = 'snowflake') => {
     let lastTriggered = 0; // To throttle the effect
 
     return () => {
         const now = Date.now();
         if (now - lastTriggered < 1000) return; // Throttle effect
         lastTriggered = now;
-        
+
         const dataImages = element.getAttribute(dataAttr);
         if (!dataImages) {
             console.warn(`Missing ${dataAttr} attribute on`, element);
@@ -51,10 +51,10 @@ const triggerEffect = (element, dataAttr = 'data-images', className = 'snowflake
             };
 
             // Trigger effect for images
-            images.forEach((imageSrc, index) => {
+            images.forEach(({ src, className }, index) => {
                 const img = document.createElement('img');
-                img.src = imageSrc;
-                img.className = className;
+                img.src = src;
+                img.className = `${effectClassName} ${className || ''}`.trim();
                 img.style.left = `${getRandomPosition()}%`;
                 img.style.animationDuration = `${3 + Math.random() * 2}s`;
                 img.style.animationDelay = `${index * 0.5}s`;
