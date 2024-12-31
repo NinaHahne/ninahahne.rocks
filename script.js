@@ -5,6 +5,8 @@ const INITIAL_ROTATION = -29; // Starting rotation of the wheel in degrees
 const wheel = document.querySelector('.wheel-wrapper');
 const spacer = document.querySelector('.spacer'); // Element to track scroll progress
 
+const effectAlreadyOnMouseEnter = false;
+
 // Function to calculate scroll progress based on the spacer element
 function getScrollProgress() {
     const spacerRect = spacer.getBoundingClientRect();
@@ -70,7 +72,7 @@ document.querySelectorAll('.img-box.snow').forEach((imgBox) => {
     };
 
     // Detect whether a mouse is present
-    if (window.matchMedia('(pointer: fine)').matches) {
+    if (effectAlreadyOnMouseEnter && window.matchMedia('(pointer: fine)').matches) {
         // Mouse is present: use hover
         imgBox.addEventListener('mouseenter', triggerEffect);
     } else {

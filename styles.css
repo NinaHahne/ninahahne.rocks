@@ -288,8 +288,8 @@ section.content {
     border-radius: 6px;
     padding: 10px;
     
-    -webkit-transition-duration: 0.6s;
-    transition-duration: 0.6s;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 
 }
 
@@ -307,9 +307,6 @@ section.content {
 }
 
 .project {
-    -webkit-transition-duration: 0.6s;
-    transition-duration: 0.6s;
-
     justify-content: space-between;
 }
 
@@ -345,6 +342,31 @@ section.content {
     margin-bottom: 10px;
     border-radius: 6px;
     border: 2px solid rgb(96, 92, 91);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .img-box.effect {
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .btn.live {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .img-box.effect:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+    .btn.live:hover {
+        background-color: rgb(96, 92, 91);
+        color: rgb(245, 248, 240);
+    }
+
+    .img-box.effect:active,
+    .btn.live:active {
+        transform: translateY(2px);
+        box-shadow: none;
+    }
 }
 
 .img-box img {
@@ -393,18 +415,13 @@ section.content {
     border-radius: 6px;
     font-weight: bold;
 
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+    /* -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s; */
 }
 
-.btn:focus,
-.btn:hover {
+.btn:focus {
     background-color: rgb(96, 92, 91);
     color: rgb(245, 248, 240);
-}
-
-.btn:active {
-    transform: translateY(3px);
 }
 
 .second-box .btn img {
@@ -621,11 +638,6 @@ section.content {
     height: 100lvh;
     width: 100%;
     overflow: hidden;
-}
-
-.img-box.rain,
-.img-box.snow {
-    cursor: pointer;
 }
 
 .rain-image {
