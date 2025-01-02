@@ -3,6 +3,7 @@
     height: 5.6vw;
     width: auto;
 }
+
 .bridge {
     height: 4.68vw;
     width: auto;
@@ -78,4 +79,67 @@
 .triangle {
     height: 5.04vw;
     width: auto;
+}
+
+@media screen and (max-width: 480px) {
+    .banana {
+        height: 15.6vw;
+    }
+    .bridge {
+        height: 14.68vw;
+    }
+    .cloth {
+        height: 22.6vw;
+    }
+    .coin {
+        height: 14.59vw;
+    }
+    .flower {
+        height: 18.01vw;
+    }
+    .fur {
+        height: 19.27vw;
+    }
+    .giant {
+        height: 19.36vw;
+    }
+    .peg {
+        height: 15.67vw;
+    }
+    .pig {
+        height: 14.23vw;
+    }
+    .plane {
+        height: 17.38vw;
+    }
+    .pokerchip {
+        height: 14.23vw;
+    }
+    .pole {
+        height: 18.01vw;
+    }
+    .puzzle {
+        height: 18.01vw;
+    }
+    .ring {
+        height: 14.41vw;
+    }
+    .rummikubtile {
+        height: 17.02vw;
+    }
+    .scissors {
+        height: 14.77vw;
+    }
+    .stone {
+        height: 14.23vw;
+    }
+    .ticket {
+        height: 18.82vw;
+    }
+    .token {
+        height: 15.04vw;
+    }
+    .triangle {
+        height: 15.04vw;
+    }
 }
