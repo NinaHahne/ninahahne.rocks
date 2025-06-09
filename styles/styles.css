@@ -222,7 +222,6 @@ img.profile-pic {
   color: rgb(96, 92, 91);
   font-size: 24px;
   text-align: center;
-  margin: 5px 0;
 }
 
 .profile-info hr {
@@ -245,7 +244,7 @@ img.profile-pic {
   position: relative;
   z-index: 1;
   margin-left: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .contact a,
