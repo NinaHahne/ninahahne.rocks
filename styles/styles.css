@@ -161,12 +161,12 @@ a:hover {
   mask-composite: exclude; /* Ensures the hole is visible */
   -webkit-mask-composite: destination-out; /* Webkit equivalent */
   mask-image: radial-gradient(
-    circle at center 142px,
+    circle at center 137px,
     transparent 114px,
     black 115px
   );
   -webkit-mask-image: radial-gradient(
-    circle at center 142px,
+    circle at center 137px,
     transparent 114px,
     black 115px
   );
@@ -183,7 +183,7 @@ a:hover {
 .window-frame {
   position: fixed;
   z-index: 1;
-  top: 49px;
+  top: 44px;
   left: 65px;
   width: 230px;
   height: 230px;
@@ -193,7 +193,7 @@ a:hover {
 
 img.profile-pic {
   position: fixed;
-  top: 72px;
+  top: 68px;
   left: 89px;
   width: 200px;
   height: auto;
@@ -208,7 +208,7 @@ img.profile-pic {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
 }
 
 .profile-info .name {
@@ -243,14 +243,14 @@ img.profile-pic {
 .contact {
   position: relative;
   z-index: 1;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-bottom: 10px;
 }
 
 .contact a,
 .profile-info span {
   display: block;
-  margin: 10px 0px;
+  margin-top: 8px;
 }
 
 .wip {
